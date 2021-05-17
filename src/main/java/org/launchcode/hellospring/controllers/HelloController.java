@@ -10,9 +10,16 @@ public class HelloController {
 
     // Handles request of the form /hello?name=LaunchCode
     @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST})
-    public String helloWithQueryParam(@RequestParam String language, String name) {
+    public String helloWithQueryParam(@RequestParam String language, @RequestParam String name) {
 //        String output = createMessage(language, name);
-        String output = language + " " + name;
+//        String output = language + " " + name;
+        String output =
+                "<html>" +
+                    "<body>" +
+                        "<h2><span style=\"color:#B22222;\"><span style=\"font-size:14px;\"><span style=\"font-family:lucida sans unicode,lucida grande,sans-serif;\">" +
+                        "Hello, " + name + "!</span></span></span></h2>" +
+                    "</body>" +
+                "</html>";
         return output;
     }
 
