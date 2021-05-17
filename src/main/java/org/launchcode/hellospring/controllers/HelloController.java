@@ -11,16 +11,15 @@ public class HelloController {
     // Handles request of the form /hello?name=LaunchCode
     @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST})
     public String helloWithQueryParam(@RequestParam String language, @RequestParam String name) {
-//        String output = createMessage(language, name);
-//        String output = language + " " + name;
-        String output =
-                "<html>" +
+        return "<html>" +
                     "<body>" +
-                        "<h2><span style=\"color:#B22222;\"><span style=\"font-size:14px;\"><span style=\"font-family:lucida sans unicode,lucida grande,sans-serif;\">" +
-                        "Hello, " + name + "!</span></span></span></h2>" +
+                        "<h3><span style=\"color:#cc6666;\">" +
+                        "<span style=\"font-size:18px;\">" +
+                        "<span style=\"font-family:lucida sans unicode,lucida grande,sans-serif;\">" +
+                        createMessage(language, name) + "!" +
+                        "</span></span></span></h3>" +
                     "</body>" +
                 "</html>";
-        return output;
     }
 
     @GetMapping("form")
@@ -44,19 +43,19 @@ public class HelloController {
 
     public static String createMessage(String language, String name) {
         String greeting = "";
-        if (language == "english") {
+        if (language.equals("english")) {
             greeting = "Hello, ";
         }
-        if (language == "french") {
+        if (language.equals("french")) {
             greeting = "Bonjour, ";
         }
-        if (language == "german") {
+        if (language.equals("german")) {
             greeting = "Hallo, ";
         }
-        if (language == "spanish") {
+        if (language.equals("spanish")) {
             greeting = "Hola, ";
         }
-        if (language == "esperanto") {
+        if (language.equals("esperanto")) {
             greeting = "Saluton, ";
         }
         return greeting + name;
