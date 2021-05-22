@@ -15,11 +15,6 @@ class HelloSpringApplicationTests {
 	}
 
 	@Test
-	void emptyTest() {
-		assertTrue(true);
-	}
-
-	@Test
 	void createMessageWorks() {
 		String expected = "Saluton, Will";
 		String actual = createMessage("esperanto", "Will");
